@@ -10,6 +10,37 @@
 <meta name="author" content="">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
+	
+<!-- CDN 加速 -->	
+<script> 
+const cdnPrefix = "https://cdn.jsdelivr.net/gh/11MallStudio/X@main/";
+// 原始github pages基础地址，降级冗余
+const originPrefix = "https://11mallstudio.github.io/X/";
+
+document.querySelectorAll("img").forEach(img => {
+  const rawSrc = img.getAttribute("src");
+  // 只处理相对路径图片，跳过外链、base64内嵌图
+  if (!rawSrc || rawSrc.startsWith("http") || rawSrc.startsWith("data:")) return;
+
+  const cdnSrc = cdnPrefix + rawSrc;
+  const originSrc = originPrefix + rawSrc;
+
+  // 先尝试加载CDN地址
+  const testImg = new Image();
+  testImg.src = cdnSrc;
+
+  testImg.onload = () => {
+    img.src = cdnSrc;
+  };
+  // CDN加载失败，自动切回github原生地址
+  testImg.onerror = () => {
+    img.src = originSrc;
+    console.warn("CDN图片加载失败，自动降级：", rawSrc);
+  };
+});
+</script>
+
+	
 <body>
 
 <!-- 移动端横屏提示模块 -->
@@ -53,7 +84,7 @@
           <li class="l-section section section--is-active">
             <div class="intro">
               <div class="intro--banner">
-                <img src="https://cdn.jsdelivr.net/gh/11MallStudio/X@main/assets/img/about-us.png" alt="Welcome">
+                <img src="assets/img/about-us.png" alt="Welcome">
               </div>
               <div class="intro--options">
                 <!-- 三栏文字链接 -->
@@ -82,7 +113,7 @@
                   <li class="slider--item slider--item-left">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="https://cdn.jsdelivr.net/gh/11MallStudio/X@main/assets/img/sku/SKU-pack2.png" alt="SKU-1">
+                        <img src="assets/img/sku/SKU-pack2.png" alt="SKU-1">
                       </div>
                       <p class="slider--item-title">【定制】迷你专辑 塑封版</p>
                       <p class="slider--item-description">质感通透，支持个性化定制，带挂孔可挂饰，轻触NFC播放歌曲。</p>
@@ -91,7 +122,7 @@
                   <li class="slider--item slider--item-center">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="https://cdn.jsdelivr.net/gh/11MallStudio/X@main/assets/img/sku/SKU-pack1.png" alt="SKU-0">
+                        <img src="assets/img/sku/SKU-pack1.png" alt="SKU-0">
                       </div>
                       <p class="slider--item-title">【定制】迷你专辑</p>
                       <p class="slider--item-description">质感通透，支持个性化定制，带挂孔可挂饰，轻触NFC播放歌曲。</p>
@@ -100,7 +131,7 @@
                   <li class="slider--item slider--item-right">
                     <a href="#0">
                       <div class="slider--item-image">
-                        <img src="https://cdn.jsdelivr.net/gh/11MallStudio/X@main/assets/img/sku/SKU-stgj1.png" alt="SKU-2">
+                        <img src="assets/img/sku/SKU-stgj1.png" alt="SKU-2">
                       </div>
                       <p class="slider--item-title">【IU】迷你专辑 塑封版</p>
                       <p class="slider--item-description">1:1复刻经典，塑封包装亦可收藏送礼，内置NFC可轻触播放歌曲。</p>

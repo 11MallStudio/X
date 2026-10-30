@@ -928,7 +928,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("https://cdn.jsdelivr.net/gh/11MallStudio/X@main/assets/img/contact-visual.png");
+    background-image: url("../img/contact-visual.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
