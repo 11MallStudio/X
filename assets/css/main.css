@@ -295,11 +295,9 @@ body {
     text-decoration: none;
     color: #fff;
 }
-.device-notification--logo p {
-    margin: 0 0 0 10px;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
+.device-notification--logo img {
+	width: 180px;
+	height: auto;
 }
 .device-notification--message {
     width: 70%;
@@ -307,17 +305,19 @@ body {
     font-weight: 700;
     text-align: center;
 }
+/* 横屏：触发限制弹窗 */
+@media (min-width: 360px) and (max-width: 999px) and (orientation: landscape) {
+    .device-notification {
+        display: flex;
+    }
+}
+/* 竖屏：窄且矮的设备 */
 @media (max-width: 767px) and (min-width: 601px) and (max-height: 680px) {
     .device-notification {
         display: flex;
     }
 }
 @media (max-width: 600px) and (min-width: 480px) and (max-height: 580px) {
-    .device-notification {
-        display: flex;
-    }
-}
-@media (max-width: 736px) and (min-width: 360px) and (orientation: landscape) {
     .device-notification {
         display: flex;
     }
@@ -368,12 +368,12 @@ body {
     align-items: center;
     text-decoration: none;
     color: #fff;
+	width: 180px;
+	height: auto;
 }
-.header--logo p {
-    margin: 0 0 0 10px;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
+.header--logo img {
+	width: 180px;
+	height: auto;
 }
 .header--nav-toggle {
     display: flex;
